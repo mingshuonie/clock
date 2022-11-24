@@ -127,7 +127,16 @@ li div {
 #middle {
     height: 35%;
     width: 100%;
-    text-align: center
+    text-align: center;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    /* Internet Explorer 9*/
+    -moz-transform: rotate(90deg);
+    /* Firefox */
+    -webkit-transform: rotate(90deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(90deg);
+    /* Opera */
 }
 
 #bottom {
@@ -266,12 +275,19 @@ li div {
     font-size: 12rem;
     line-height: 10rem;
     font-weight: bold;
-    text-align: center
+    text-align: center;
+
+    /* position: relative;
+    right: 1%; */
 }
 
 .date {
     font-size: 3rem;
-    line-height: 3rem
+    line-height: 3rem;
+        position: relative;
+    left: 1%;
+    /* transform: translateY(-40%);
+    -webkit-transform: translateY(-40%) */
 }
 
 .lunar,
