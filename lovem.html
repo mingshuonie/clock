@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>　</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div class="page">
+        <div id="log_container">
+        </div>
+        <div id="top">
+        </div>
+
+        <div id="middle">
+            <div id="time_container">
+                <div id="apmOuterWrapper">
+                    <div id="apmInnerWrapper">
+                        <div id="apm"></div>
+                    </div>
+                </div>
+                <div class="time" id="time"></div>
+                <br />
+                <br />
+                <br />
+                <div class="date" id="date"></div>
+                <br />
+                <br />
+                <span id="jinrishici-sentence">正在加载诗词....</span>
+                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+                <div class="words" id="words"></div>
+            </div>
+        </div>
+
+        <div id="bottom">
+        </div>
+    </div>
+
+    <script>
+        // 创建XMLHttpRequest对象
+        function createXHR() {
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            return xhr;
+        }
+
+        // 时钟模块
+        function clock() {
+            var date = new Date()
+            var utc8DiffMinutes = date.getTimezoneOffset() + 480
+            date.setMinutes(date.getMinutes() + utc8DiffMinutes)
+
+            var hour = date.getHours()
+
+            // var apm = '上<br>午'
+            // if (hour > 12) {
+            //     apm = '下<br>午'
+            //     hour -= 12
+            // }
+
+            var timeString = hour + ':' + ('0' + date.getMinutes()).slice(-2)
+            var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
+            var weekList = ['日', '一', '二', '三', '四', '五', '六']
+            var weekString = '星期' + weekList[date.getDay()]
+
+            var date_start = new Date("11/19/2021");
+            var day = (date.getTime()-date_start.getTime())/ (1000 * 3600 * 24)
+
+            // document.getElementById('apm').innerHTML = apm
+            document.getElementById("time").innerHTML = timeString
+            document.getElementById("date").innerHTML = dateString + " " + weekString
+            document.getElementById("words").innerHTML = "DAY"+ parseInt(Math.abs(day))
+        }
+
+        clock()
+
+        setInterval("clock()", 60 * 1000)
+    </script>
+</body>
+
+</html>
