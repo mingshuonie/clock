@@ -26,11 +26,12 @@
                 <br />
                 <br />
                 <div class="date" id="date"></div>
-                <br />
-                <br />
-                <span id="jinrishici-sentence"></span>
-                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-                <div class="words" id="words" style="font-size: 31pt"></div>
+                <!-- <span id="jinrishici-sentence"></span>
+                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+                <div class="words" id="words" style="font-size: 2rem;
+    line-height: 10rem;
+                
+                "></div>
             </div>
         </div>
 
@@ -70,12 +71,12 @@
             var weekString = '星期' + weekList[date.getDay()]
 
             var date_start = new Date("11/19/2021");
-            var day = (date.getTime()-date_start.getTime())/ (1000 * 3600 * 24)
+            var day = (date.getTime() - date_start.getTime()) / (1000 * 3600 * 24)
 
             // document.getElementById('apm').innerHTML = apm
             document.getElementById("time").innerHTML = timeString
             document.getElementById("date").innerHTML = dateString + " " + weekString
-            document.getElementById("words").innerHTML = "DAY"+ parseInt(Math.abs(day))
+            document.getElementById("words").innerHTML = "DAY" + parseInt(Math.abs(day))
         }
 
         clock()
